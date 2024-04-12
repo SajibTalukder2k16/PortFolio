@@ -165,7 +165,7 @@ section .title::after{
 /* home section styling */
 .home{
     display: flex;
-    background: url("images/banner.jpg") no-repeat center;
+    background: url("images/cs-bg.jpg") no-repeat center;
     height: 100vh;
     color: #fff;
     min-height: 500px;
@@ -298,6 +298,69 @@ section .title::after{
     color: #fff;
 }
 .services .serv-content .card .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+
+/*Research Interest Section*/
+
+.research-interest, .teams{
+    color:#fff;
+    background: #111;
+}
+.research-interest .title::before,
+.teams .title::before{
+    background: #fff;
+}
+.research-interest .max-width .sub-title{
+    margin-top: -30px;
+    margin-bottom: 15px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+.research-interest .max-width .mini-title{
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    font-family: 'Ubuntu', sans-serif;
+}
+.research-interest .title::after,
+.teams .title::after{
+    background: #111;
+    content: "Where I want to contribute";
+}
+.research-interest .serv-content .card{
+    width: calc(33% - 20px);
+    background: #222;
+    text-align: center;
+    border-radius: 6px;
+    padding: 50px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.research-interest .serv-content .card:hover{
+    background: crimson;
+}
+.research-interest .serv-content .card .box{
+    transition: all 0.3s ease;
+}
+.research-interest .serv-content .card:hover .box{
+    transform: scale(1.05);
+}
+.research-interest .serv-content .card i{
+    font-size: 50px;
+    color: crimson;
+    transition: color 0.3s ease;
+}
+.research-interest .serv-content .card:hover i{
+    color: #fff;
+}
+.research-interest .serv-content .card .text{
     font-size: 25px;
     font-weight: 500;
     margin: 10px 0 7px 0;
