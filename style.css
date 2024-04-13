@@ -524,7 +524,7 @@ section .title::after{
 }
 .contact .contact-content .row{
     display: flex;
-    height: 65px;
+    height: 85px;
     align-items: center;
 }
 .contact .contact-content .row .info{
@@ -740,4 +740,11 @@ footer span a:hover{
         font-size: 23px;
         line-height: 38px;
     }
+}
+.toast-center-center {
+    top: 75%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    right: initial;
+    width: 300px;
 }

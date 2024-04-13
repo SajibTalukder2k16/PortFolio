@@ -12,6 +12,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    
 
 </head>
 <body>
@@ -278,8 +282,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <i class="fas fa-envelope"></i>
-                            <div class="info">
+                            <i class="fas fa-envelope" ></i>
+                            <div class="info" style="margin-left: 22px ;">
                                 <div class="head">Email</div>
                                 <div class="sub-title">sajibtalukder2k16@gmail.com</div>
                             </div>
@@ -288,20 +292,20 @@
                 </div>
                 <div class="column right">
                     <div class="text">Message me</div>
-                    <form action="#" method="POST">
+                    <form method="POST" id="form">
                         <div class="fields">
                             <div class="field name">
-                                <input type="text" placeholder="Name" required>
+                                <input type="text" id="name" placeholder="Name" required>
                             </div>
                             <div class="field email">
-                                <input type="email" placeholder="Email" required>
+                                <input type="email" id="email" placeholder="Email" required>
                             </div>
                         </div>
                         <div class="field">
-                            <input type="text" placeholder="Subject" required>
+                            <input type="text" id="subject" placeholder="Subject" required>
                         </div>
                         <div class="field textarea">
-                            <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                            <textarea cols="30" rows="10" id="message" placeholder="Message.." required></textarea>
                         </div>
                         <div class="button-area">
                             <button type="submit">Send message</button>
@@ -320,3 +324,71 @@
     <script src="script.js"></script>
 </body>
 </html>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-analytics.js";
+    import { getFirestore, getDocs, collection,addDoc } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDjz3rsyFbm9_O9ckRbHNR2_s-712nwv7o",
+      authDomain: "portfolio-ce52f.firebaseapp.com",
+      projectId: "portfolio-ce52f",
+      storageBucket: "portfolio-ce52f.appspot.com",
+      messagingSenderId: "964816663431",
+      appId: "1:964816663431:web:709cddc1f8dc568a7d1922",
+      measurementId: "G-EPQWV2D9RT"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    // const database = getFirestore(app);
+    const db = getFirestore(app);
+    const form = document.getElementById('form');
+
+    form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    var data = {
+        name: name,
+        email: email,
+        subject: subject,
+        message: message
+    };
+    const portfolioCollection = collection(db, "portfolio");
+    toastr.options = {
+        "positionClass": "toast-center-center"
+    }
+    if (navigator.onLine) {
+        addDoc(portfolioCollection, data)
+            .then((docRef) => {
+                form.reset();
+                toastr.success('Your Message successfully sent!');
+            })
+            .catch((error) => {
+                console.error("Error while sending message: ", error);
+                toastr.error('Error while sending message!');
+            });
+    } else {
+        toastr.error('You are currently offline. Please check your network connection.');
+    }
+
+
+
+
+    // Clear form fields after submission
+    });
+  </script>
