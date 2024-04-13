@@ -257,6 +257,21 @@ section .title::after{
     background: none;
 }
 
+/* Education */
+.education .title::after{
+    content: "where i have studied";
+}
+.float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+}  
 /* services section styling */
 .services, .teams{
     color:#fff;
@@ -408,8 +423,8 @@ section .title::after{
     justify-content: space-between;
 }
 .skills .skills-content .right span{
-    font-weight: 500;
-    font-size: 18px;
+    font-weight: 400;
+    font-size: 16px;
 }
 .skills .skills-content .right .line{
     height: 5px;
