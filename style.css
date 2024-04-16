@@ -26,9 +26,11 @@ html{
     background: #555;
 }
 
+
+
 /* all similar content styling codes */
 section{
-    padding: 100px 0;
+    padding: 60px 0;
 }
 .max-width{
     max-width: 1300px;
@@ -258,37 +260,48 @@ section .title::after{
 }
 
 /* Education */
-.education .title::after{
-    content: "where i have studied";
-}
-.float-container {
-    border: 3px solid #fff;
-    padding: 20px;
-}
-
-.float-child {
-    width: 50%;
-    float: left;
-    padding: 20px;
-    border: 2px solid red;
-}  
-/* services section styling */
-.services, .teams{
+.education{
     color:#fff;
     background: #111;
 }
+.education .title::after{
+    background: #111;
+    content: "where i have studied";
+}
+
+.work{
+    color:#fff;
+    background: #111;
+}
+ul{
+    padding: 5px 15px;
+}
+li{
+    padding:5px;
+}
+.work .title::after{
+    background: #111;
+    content: "where i have worked";
+}
+/* services section styling */
+.services, .teams{
+    color:#111;
+    background: #fff;
+}
 .services .title::before,
 .teams .title::before{
-    background: #fff;
+    /* background: #fff; */
 }
 .services .title::after,
 .teams .title::after{
-    background: #111;
+    /* background: #111; */
     content: "what i provide";
 }
 .services .serv-content .card{
-    width: calc(33% - 20px);
-    background: #222;
+    /* width: calc(33% - 20px); */
+    height:380px !important;
+    /* background: #222; */
+    border: 3px solid crimson;
     text-align: center;
     border-radius: 6px;
     padding: 50px 25px;
@@ -321,8 +334,8 @@ section .title::after{
 /*Research Interest Section*/
 
 .research-interest, .teams{
-    color:#fff;
-    background: #111;
+    color:#111;
+    background: #fff;
 }
 .research-interest .title::before,
 .teams .title::before{
@@ -332,22 +345,31 @@ section .title::after{
     margin-top: -30px;
     margin-bottom: 15px;
     font-family: 'Ubuntu', sans-serif;
-    margin-left: -20px;
-    margin-right: -20px;
+    /* margin-left: -20px; */
+    /* margin-right: -20px; */
+    padding: 0 35px;
 }
 .research-interest .max-width .mini-title{
     position: relative;
     text-align: center;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 500;
-    margin-bottom: 60px;
+    /* margin-bottom: 60px; */
     padding-bottom: 20px;
     font-family: 'Ubuntu', sans-serif;
 }
 .research-interest .title::after,
 .teams .title::after{
-    background: #111;
+    /* background: #111; */
     content: "Where I want to contribute";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    font-size: 20px;
+    color: crimson;
+    padding: 0 5px;
+    background: #fff;
+    transform: translateX(-50%);
 }
 .research-interest .serv-content .card{
     width: calc(33% - 20px);
@@ -457,11 +479,16 @@ section .title::after{
 }
 
 /* teams section styling */
+.teams{
+    color: black;
+}
 .teams .title::after{
     content: "I have worked with";
 }
 .teams .carousel .card{
-    background: #222;
+    height:380px !important;;
+    /* background: #222; */
+    border: 3px solid crimson;
     border-radius: 6px;
     padding: 25px 35px;
     text-align: center;
@@ -489,7 +516,7 @@ section .title::after{
 .teams .carousel .card img{
     height: 150px;
     width: 150px;
-    object-fit: cover;
+    object-fit:fill;
     border-radius: 50%;
     border: 5px solid crimson;
     transition: all 0.3s ease;
@@ -698,7 +725,7 @@ footer span a:hover{
         flex: 100%;
     }
     .services .serv-content .card{
-        width: calc(50% - 10px);
+        /* width: calc(50% - 10px); */
         margin-bottom: 20px;
     }
     .skills .skills-content .column,
@@ -762,4 +789,45 @@ footer span a:hover{
     transform: translate(-50%, -50%);
     right: initial;
     width: 300px;
+}
+.float-container{
+    margin: 20px;
+    padding: 10px;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 500;
+}
+.float-child{
+    margin: 10px;
+    padding: 15px; 
+    border: 1px solid #000;
+    background-color:#333;
+    border-radius: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+.float-container :hover{
+    background-color: crimson;
+    color: #fff;
+    transition: all 0.3s ease;
+    /* border-radius: 6px; */
+    cursor: pointer;
+    transform: scale(1.005);
+}
+
+
+.float-child-white{
+    margin: 10px;
+    padding: 15px; 
+    border: 1px solid #000;
+    background-color:#fff;
+    border-radius: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
 }
